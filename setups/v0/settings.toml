@@ -1,0 +1,36 @@
+polling_interval = 1
+
+[interfaces]
+
+[interfaces.database]
+module = "mysql"
+
+[interfaces.database.mysql]
+class = "MySQLDatabase"
+host = "mysql"
+port = 3306
+user = "CONSUMER_DB"
+password = "CONSUMER_DB_PASSWORD"
+database = "DB"
+
+[interfaces.queue]
+module = "mysql"
+
+[interfaces.queue.mysql]
+class = "MySQLQueue"
+host = "mysql"
+port = 3306
+user = "CONSUMER_QUEUE"
+password = "CONSUMER_QUEUE_PASSWORD"
+database = "QUEUE"
+
+[interfaces.storage]
+module = "mysql"
+
+[interfaces.storage.mysql]
+class = "MySQLStorage"
+host = "mysql"
+port = 3306
+user = "CONSUMER_STORAGE"
+password = "CONSUMER_STORAGE_PASSWORD"
+database = "STORAGE"

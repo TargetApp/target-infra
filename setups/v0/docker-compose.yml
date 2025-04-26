@@ -1,0 +1,16 @@
+services:
+  mysql:
+    image: mysql:8.4
+    container_name: mysql
+    command: --max_allowed_packet=1073741824
+    environment:
+      MYSQL_ROOT_PASSWORD: "securepassword"
+    ports:
+      - "3306:3306"
+    expose:
+      - "3306"
+    volumes:
+      - "./.mysql-data/db:/var/lib/mysql"
+      - "../../components/database/mysql/create_database.sql:/docker-entrypoint-initdb.d/01_create_database.sql"
+      - "../../components/queue/mysql/create_queue.sql:/docker-entrypoint-initdb.d/02_create_queue.sql"
+      - "../../components/storage/mysql/create_storage.sql:/docker-entrypoint-initdb.d/03_create_storage.sql"
